@@ -1,8 +1,5 @@
 <h1>Homepage</h1>
 
-
-<h3>Submit</h3>
-
 <ul>
   <% @links.each do |link| %>
     <li><%= link_to link.description, link.url %>  <button class="btn btn-default btn-mini"><%= link_to "Delete", link, :method => :delete, :data => { :confirm  => "are you sure about that?" } %></button><hr/></li>
