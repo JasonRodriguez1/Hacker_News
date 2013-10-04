@@ -1,0 +1,17 @@
+<% if @link.errors.any? %>
+  <h3>Please correct these problems:</h3>
+    <ul>
+      <% @link.errors.full_messages.each do |messages| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+<% end %>
+
+
+<%= form_for @link do |f| %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+  <%= f.submit %>
+<% end %>
