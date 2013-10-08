@@ -8,7 +8,9 @@ class Link < ActiveRecord::Base
     self.votes.count
   end
 
-  def self.sort_by_points
-    votes.points.sort |link1, link2| link1.points <=> link2.points
+  def Link.sort_by_votes
+    # Link.all.count.sort { |link1, link2| link2.points <=> link1.points }
+    @sorted_links = self.all.sort_by { |link| link.votes.count }
+    @sorted_links.reverse
   end
 end

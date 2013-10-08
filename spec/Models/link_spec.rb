@@ -20,18 +20,18 @@ describe Link do
     user2 = User.create(:name => "test2", :email => "s@s.com", :user_name => "tassadar", :password => 5678, :password_confirmation => 4321)
     user3 = User.create(:name => "test3", :email => "d@d.com", :user_name => "artanis", :password => 8910, :password_confirmation => 5678)  
     # make 3 links
-    link1 = Link.create(:description => "whatever", :url => "www.hulu.com")
-    link2 = Link.create(:description => "whatevz", :url => "www.youtube.com")
-    link3 = Link.create(:description => "nahkid", :url => "www.facebook.com")  
+    least_popular_link = Link.create(:description => "least popular", :url => "www.hulu.com")
+    most_popular_link = Link.create(:description => "most poular", :url => "www.youtube.com")
+    middle_popular_link = Link.create(:description => "middle popular", :url => "www.facebook.com")  
     # make 3 votes for one link, 2 for another, and 1 for the other
-    vote = Vote.create(:user_id => user1.id, :link_id => link2.id)
-    vote = Vote.create(:user_id => user2.id, :link_id => link2.id)
-    vote = Vote.create(:user_id => user3.id, :link_id => link2.id)
-    vote = Vote.create(:user_id => user1.id, :link_id => link3.id)
-    vote = Vote.create(:user_id => user2.id, :link_id => link3.id)
-    vote = Vote.create(:user_id => user3.id, :link_id => link1.id)
+    vote1 = Vote.create(:user_id => user1.id, :link_id => most_popular_link.id)
+    vote2 = Vote.create(:user_id => user2.id, :link_id => most_popular_link.id)
+    vote3 = Vote.create(:user_id => user3.id, :link_id => most_popular_link.id)
+    vote4 = Vote.create(:user_id => user1.id, :link_id => middle_popular_link.id)
+    vote5 = Vote.create(:user_id => user2.id, :link_id => middle_popular_link.id)
+    vote6 = Vote.create(:user_id => user3.id, :link_id => least_popular_link.id)
     # say that when you call the method you're about to write, they come out sorted in the right order
-    self.sort_by_points.should eq link2,link3,link1
+    Link.sort_by_votes.should eq [most_popular_link,middle_popular_link,least_popular_link]
   end
 
 end
