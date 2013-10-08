@@ -1,8 +1,19 @@
-<h1>Homepage</h1>
+<h1>Haxie News</h1>
 
 <ul>
   <% @links.each do |link| %>
-    <li><a href="post request form with hidden field and use user id">&#x25B2;</a><%= link_to link.description, link.url %>    <button class="btn btn-default btn-mini"><%= link_to "Delete", link, :method => :delete, :data => { :confirm  => "are you sure about that?" } %></button><hr/></li>
+    <li>
+      <%= form_for link.votes.new do |f| %>
+               <%= f.hidden_field :link_id %>
+               <%= f.submit  '▲' %>
+               <% end %>
+
+      <%= link_to link.description, link.url %>
+      <small><%= "(#{link.url})" %></small>
+      <button class="btn btn-default btn-mini">
+        <%= link_to "Delete", link, :method => :delete, :data => { :confirm  => "are you sure about that?" } %>
+      </button><hr/>
+    </li>
   <% end %>
 </ul>
 
