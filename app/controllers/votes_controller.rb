@@ -9,7 +9,7 @@ class VotesController < ApplicationController
   # end
 
   def create
-    @vote = Vote.new(voter_params)
+    @vote = current_user.votes.new(voter_params)
     if @vote.save
       redirect_to links_path, notice: "Thanks for voting!"
     else
@@ -43,7 +43,8 @@ class VotesController < ApplicationController
 private
 
   def voter_params
-    params.require(:vote).permit(:user_id, :link_id)
+    params.require(:vote).permit(:link_id)
   end
 
-end  
+end 
+ 

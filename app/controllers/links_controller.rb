@@ -13,7 +13,7 @@ class LinksController < ApplicationController
     @link = Link.new(links_params)
     if @link.save
       flash[:notice] = "Your link has been saved."
-      redirect_to links_path
+      redirect_to root_path
     else
       render :new
     end
@@ -23,7 +23,11 @@ class LinksController < ApplicationController
     @link = Link.find(params[:id])
     @link.destroy
     flash[:notice] = "Your link has been removed."
-    redirect_to links_path
+    redirect_to root_path
+  end
+
+  def show
+    @link = Link.find(params[:id])
   end
 
 private

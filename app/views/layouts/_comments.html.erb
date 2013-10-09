@@ -1,0 +1,24 @@
+<div>
+  <% @link.comments.each do |link_comment| %>
+    <p>
+      <%= link_comment.text %><br>
+      <% if link_comment.comments != nil %>
+        <%= form_for link_comment.comments.new do |f| %>
+          <%= f.text_field :text %>
+          <%= f.hidden_field :commentable_id %>
+          <%= f.hidden_field :commentable_type %>
+          <%= f.submit  'reply' %>
+        <% end %>  
+      </p>
+        <ul>
+          <% if link_comment.comments != nil %>
+            <% link_comment.comments.each do |reply| %>
+              <%= reply.text %>
+              
+            <% end %>
+          <% end %>
+        </ul>
+    <% end %>
+  <% end %>
+</div>
+

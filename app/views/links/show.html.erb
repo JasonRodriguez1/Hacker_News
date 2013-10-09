@@ -1,2 +1,18 @@
-<h1>About</h1>
+<h1>
+  <%= @link.description %><br>
+  <%= @link.url %>
+</h1>
+
+<p>
+  <%= form_for @link.comments.new do |f| %>
+    <%= f.text_field :text %>
+    <%= f.hidden_field :commentable_id %>
+    <%= f.hidden_field :commentable_type %>
+    <%= f.submit  'add comment' %>
+  <% end %>    
+</p>
+<br>
+<p>
+  <%= render "layouts/comments" %>
+</p>
 

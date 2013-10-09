@@ -1,5 +1,5 @@
 HackerNews::Application.routes.draw do
-  resources :sessions, :users, :links, :votes
+  resources :sessions, :users, :links, :votes, :comments
 
   get "sign up", to: "users#new", as: "signup"
   get "login", to: "sessions#new", as: "login"
