@@ -1,0 +1,28 @@
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans);
+body
+{
+/*background: url(image6.jpg);*/
+background: image-url("image6.jpg");
+background-size: 150%;
+background-repeat:no-repeat;
+}
+
+#title {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 3em;
+  color: black;
+}
+
+#top {
+  background-color: #FFC966;
+}
+
+#content {
+  background-color:rgba(255,255,255,0.75);
+  padding-right: 50%;
+  border-radius: 10px;
+}
+
+.date {
+  display:block;  	
+}
