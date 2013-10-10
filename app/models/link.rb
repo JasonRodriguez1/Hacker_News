@@ -1,5 +1,5 @@
 class Link < ActiveRecord::Base
-  validates :url, :presence => true
+  validates :url, :presence => true, :url => true
   belongs_to :user
   has_many :votes
   has_many :comments, :as => :commentable

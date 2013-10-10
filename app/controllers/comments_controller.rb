@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.new(comment_params)
     if @comment.save
       flash[:notice] = "Your comment has been saved."
-      redirect_to root_path
+      redirect_to @comment.route_to_comment
     else
       
     end

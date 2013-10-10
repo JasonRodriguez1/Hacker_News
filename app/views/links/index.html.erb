@@ -17,7 +17,9 @@
                    <% end %>
           <%= "#{link.votes.count} votes " %>
           <%= link_to link.description, link.url %>
-          <small><%= "(#{link.url})" %></small><br>
+          <small><%= "(#{link.url})" %></small>
+          <span class="date"><%= link.created_at.to_time.strftime("%b %-d, %Y @ %-I:%M%P") %></span>
+          <br>
           <button class="btn btn-default btn-xs">
             <%= link_to "Delete", link, :method => :delete, :data => { :confirm  => "are you sure about that?" } %>
           </button> 
@@ -28,3 +30,4 @@
 </tbody>
 
 </div>
+

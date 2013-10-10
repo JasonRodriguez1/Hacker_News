@@ -1,7 +1,8 @@
 <div class="jumbotron" style="font-size: 3em;">
+<button class="btn btn-default btn-xs" style="float:right"><%= link_to "Back to Links", link_path %></button>
   <a href= <%= "'" + @link.url + "'"%> > <%= @link.description %></a><br>
 </div>
-<h6 class="row">
+<h6 id="content">
   <%= @link.url.gsub(/(http:\/\/ *)()/, "") %>
 </h6>
 <div class="container" id="content">
