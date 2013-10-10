@@ -4,15 +4,17 @@
 </h1>
 
 <p>
-  <%= form_for @link.comments.new do |f| %>
+  <%= form_for Comment.new do |f| %>
     <%= f.text_field :text %>
-    <%= f.hidden_field :commentable_id %>
-    <%= f.hidden_field :commentable_type %>
+    <%= f.hidden_field :commentable_id, :value => @link.id %>
+    <%= f.hidden_field :commentable_type, :value => @link.class %>
     <%= f.submit  'add comment' %>
   <% end %>    
 </p>
 <br>
-<p>
-  <%= render "layouts/comments" %>
-</p>
+<ul>
+  <% @link.comments.each do |comment| %>
+    <%= render "layouts/comments", :comment => comment %>
+  <% end %>
+</ul>
 
