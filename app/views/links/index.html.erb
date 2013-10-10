@@ -1,12 +1,15 @@
+
 <% if current_user %>
-<p style="float:right;"> Logged in as: <%= current_user.name %> </p>
+<p style="float:right; padding-right: 10px;"> Logged in as: <%= current_user.name %> </p>
 <% end %>
-<table>
+<div class="container" id="content">
+  <button class="btn btn-default btn-xs" style="float:right"><%= link_to "New Link", new_link_path %></button><br><br>
+<table >
   <thead> 
     <tr>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="stories">
     <% @links.sort_by_votes.each do |link| %>
           <%= form_for link.votes.new do |f| %>
                    <%= f.hidden_field :link_id %>
@@ -14,13 +17,14 @@
                    <% end %>
           <%= "#{link.votes.count} votes " %>
           <%= link_to link.description, link.url %>
-          <small><%= "(#{link.url})" %></small>
-          <button class="btn btn-default btn-mini">
+          <small><%= "(#{link.url})" %></small><br>
+          <button class="btn btn-default btn-xs">
             <%= link_to "Delete", link, :method => :delete, :data => { :confirm  => "are you sure about that?" } %>
-          </button>
-          <button class="btn btn-default btn-mini">
+          </button> 
+          <button class="btn btn-default btn-xs">
             <%= link_to "Comment", link_path(link)%>
           </button><hr/>
       <% end %>
 </tbody>
-<%= link_to "New Link", new_link_path %>
+
+</div>

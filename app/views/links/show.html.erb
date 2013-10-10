@@ -4,6 +4,7 @@
 <h6 class="row">
   <%= @link.url.gsub(/(http:\/\/ *)()/, "") %>
 </h6>
+<div class="container" id="content">
 
 <p>
   <%= form_for Comment.new do |f| %>
@@ -19,4 +20,5 @@
     <%= render "layouts/comments", :comment => comment %>
   <% end %>
 </ul>
+</div>
 
