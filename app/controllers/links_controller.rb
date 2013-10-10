@@ -13,7 +13,7 @@ class LinksController < ApplicationController
     @link = Link.new(links_params)
     if @link.save
       flash[:notice] = "Your link has been saved."
-      
+      redirect_to root_path
     else
       render :new
     end
