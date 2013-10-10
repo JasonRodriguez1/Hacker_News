@@ -1,21 +1,15 @@
-<li>
+<li class="list-group-item">
   <%= comment.text %>
-  <%= form_for Comment.new do |f| %>
+  <%= form_for Comment.new do |f| %><br>
     <%= f.text_field :text %>
     <%= f.hidden_field :commentable_id, :value => comment.id %>
     <%= f.hidden_field :commentable_type, :value => comment.class %>
-    <%= f.submit 'reply' %>
+    <%= f.submit 'reply', :class => "btn btn-default" %>
   <% end %>
-  <ul>
+  <ul class="list-group">
     <% comment.comments.each do |reply| %>
-      <li><%= reply.text %></li>
-       <%= form_for Comment.new do |f| %>
-        <%= f.text_field :text %>
-        <%= f.hidden_field :commentable_id, :value => reply.id %>
-        <%= f.hidden_field :commentable_type, :value => reply.class %>
-        <%= f.submit 'reply' %>
-      <% end %>
-      <% render "/layouts/comments", :comment => reply %>
+      
+      <%= render "/layouts/comments", :comment => reply %>
     <% end %>
   </ul>
 </li>

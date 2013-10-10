@@ -1,14 +1,16 @@
-<h1>
-  <%= @link.description %><br>
-  <%= @link.url %>
-</h1>
+<div class="jumbotron" style="font-size: 3em;">
+  <a href= <%= "'" + @link.url + "'"%> > <%= @link.description %></a><br>
+</div>
+<h6 class="row">
+  <%= @link.url.gsub(/(http:\/\/ *)()/, "") %>
+</h6>
 
 <p>
   <%= form_for Comment.new do |f| %>
     <%= f.text_field :text %>
     <%= f.hidden_field :commentable_id, :value => @link.id %>
     <%= f.hidden_field :commentable_type, :value => @link.class %>
-    <%= f.submit  'add comment' %>
+    <%= f.submit  'add comment', :class => "btn btn-default" %>
   <% end %>    
 </p>
 <br>

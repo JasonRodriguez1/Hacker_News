@@ -13,6 +13,10 @@
       <button class="btn btn-default btn-mini">
         <%= link_to "Delete", link, :method => :delete, :data => { :confirm  => "are you sure about that?" } %>
       </button><hr/>
+
+      <button class="btn btn-default btn-mini">
+        <%= link_to "Comment", link_path(link)%>
+      </button>
     </li>
   <% end %>
 </ul>
