@@ -8,24 +8,22 @@
       <% end %>
     </ul>
 <% end %>
-<table>
-  <tbody>
-
-  <%= form_for @user do |f| %>
-    <tr><td><%= f.label :name %></tr></td>
-    <tr><td><%= f.text_field :name %></tr></td>
-    <tr><td><%= f.label :email %></tr></td>
-    <tr><td><%= f.text_field :email %></tr></td>
-    <tr><td><%= f.label :user_name %></tr></td>
-    <tr><td><%= f.text_field :user_name %></tr></td>
-    <tr><td><%= f.label :password %></tr></td>
-    <tr><td><%= f.password_field :password %></tr></td>
-    <tr><td><%= f.label :password_confirmation %></tr></td>
-    <tr><td><%= f.password_field :password_confirmation %></tr></td>
-    <tr><td></tr></td>  
+<%= form_for @user do |f| %>
+  <table>
+    <tbody>
+      <tr><td><%= f.label :name %></tr></td>
+      <tr><td><%= f.text_field :name %></tr></td>
+      <tr><td><%= f.label :email %></tr></td>
+      <tr><td><%= f.text_field :email %></tr></td>
+      <tr><td><%= f.label :user_name %></tr></td>
+      <tr><td><%= f.text_field :user_name %></tr></td>
+      <tr><td><%= f.label :password %></tr></td>
+      <tr><td><%= f.password_field :password %></tr></td>
+      <tr><td><%= f.label :password_confirmation %></tr></td>
+      <tr><td><%= f.password_field :password_confirmation %></tr></td>
+      <tr><td></tr></td>  
     </tbody>
-    </table>
-    <%= f.submit 'sign up'%>
-  <% end %>
-
+  </table>
+<%= f.submit 'sign up' %>
+<% end %>
 </div>

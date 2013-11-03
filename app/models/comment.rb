@@ -10,5 +10,4 @@ class Comment < ActiveRecord::Base
   	  self.commentable.route_to_comment
     end
   end
-
 end
